@@ -32,7 +32,7 @@ makeAmat <- function(ped, which=NULL, inbreeding=NULL) {
    	else {
    	   makeA(ped,which = which,inbreeding=inbreeding)
    	}
-	Alist <- scan("A.txt", what=list(integer(),integer(),double()))
+	Alist <- scan("A.txt", what=list(integer(),integer(),double()),quiet=TRUE)
     A <- as.matrix(new("matrix.ssr",ra=Alist[[3]], ja=Alist[[2]], ia=c(which(!duplicated(Alist[[1]])),
                     (length(Alist[[1]])+1L)), dimension=c(sum(which),sum(which))))
     rownames(A) <- as.character(ped[which,1])
